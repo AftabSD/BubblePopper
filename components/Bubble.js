@@ -1,59 +1,46 @@
-/**
- * Bubble Component
- * 
- * Renders a circular bubble for the Bubble Popper game.
- * Each bubble has a position (x, y) and size (radius).
- * 
- * CURRENT IMPLEMENTATION:
- * - Simple green circle with drop shadow
- * - Fixed radius (typically 30)
- * - Absolute positioning
- * 
- * ============== STUDENT EXTENSION IDEAS ==============
- * Consider enhancing this component with:
- * 1. Different bubble types/colors
- * 2. Animation effects (pulsing, rotation)
- * 3. Pop animation when hit by laser
- * 4. Special power-up bubbles
- */
-
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 /**
- * Bubble component for the Bubble Popper game
+ * Bubble Component (now displays burgers)
+ * 
+ * Renders a burger emoji instead of a green bubble
+ * Each burger has a position (x, y) and size
  * 
  * @param {Object} props - Component properties
- * @param {number} props.x - X coordinate of the bubble
- * @param {number} props.y - Y coordinate of the bubble
- * @param {number} props.radius - Radius of the bubble
- * @returns {React.Component} Rendered bubble
+ * @param {number} props.x - X coordinate of the burger
+ * @param {number} props.y - Y coordinate of the burger
+ * @param {number} props.radius - Size parameter (used for positioning)
+ * @returns {React.Component} Rendered burger
  */
 export default function Bubble({ x, y, radius }) {
+  const burgerSize = radius * 2;
+  
   return (
     <View
       style={[
-        styles.bubble,
+        styles.burgerContainer,
         {
           left: x,
           top: y,
-          width: radius * 2,
-          height: radius * 2,
-          borderRadius: radius,
+          width: burgerSize,
+          height: burgerSize,
         },
       ]}
-    />
+    >
+      <Text style={styles.burgerEmoji}>🍔</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  bubble: {
+  burgerContainer: {
     position: 'absolute',
-    backgroundColor: '#4CAF50',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  burgerEmoji: {
+    fontSize: 80,
+    textAlign: 'center',
   },
 });
