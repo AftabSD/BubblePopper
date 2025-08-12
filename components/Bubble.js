@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   burgerEmoji: {
-    fontSize: 80,
+    fontSize: 50,
     textAlign: 'center',
   },
 });
